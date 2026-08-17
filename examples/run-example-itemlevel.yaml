@@ -1,0 +1,7 @@
+# End-to-end example on the shipped pseudonymised cohort.
+#   clover run --config examples/run-example.yaml -o out/
+blueprint: ../blueprints/example-bm0400067-itemlevel.yaml
+sources:
+  - path: cohort-anonymised.csv
+    reader: tabular
+    layout: long

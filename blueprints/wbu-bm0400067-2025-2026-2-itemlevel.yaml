@@ -1,0 +1,177 @@
+# Blueprint B — the same course, same students, same 100-point scale, but with
+# points attached to the assessment items that were actually recorded: nine
+# classroom-participation sessions, five assignments, and the five rubric
+# dimensions of the final report.
+#
+# The classroom sessions and the assignments follow the five laboratory units
+# in the syllabus, so each is mapped to the objective that unit serves. The
+# five rubric rows are declared as separate items even though only their sum
+# was recorded: declaring them makes the tool say so (EV-AGG) instead of
+# hiding it, and the day the instructor records the rows separately the
+# blueprint already fits.
+#
+#   coursework  10 pts classroom + 40 pts assignments = 50
+#   final       50 pts across the five rubric dimensions
+#
+# Compare against blueprint A with:
+#   clover diagnose --cohort cohort.json --blueprint <this file>
+
+schema_version: "1.0"
+blueprint_id: wbu-bm0400067-2025-2026-2-itemlevel
+
+course:
+  code: BM0400067
+  name: 国际财务报表分析
+  name_en: International Financial Statement Analysis
+  institution: 武汉商学院
+  program: 经济与金融
+  cohort_label: 23经济与金融(本科)
+  term: 2025-2026-2
+  credits: 2学分
+  hours: 32学时
+  nature: 专业限选课
+  department: 金融教研室
+  assessment_mode: 考查
+  instructor: 周丽
+
+policy:
+  qualifying_standard: 0.65
+  total_points: 100
+  method: score_ratio
+  expectation_level: 0.60
+  bootstrap_iterations: 2000
+  bootstrap_confidence: 0.95
+  seed: 20260816
+  min_items_per_objective: 2
+  collinearity_warn: 0.90
+  collinearity_fail: 0.98
+
+indicators:
+  - id: "2.1"
+    requirement_id: "2"
+    text: 具备扎实的经济学与金融学基础知识。
+    requirement: 基础知识与专业知识：具备扎实的经济学、金融学基础知识。
+  - id: "2.2"
+    requirement_id: "2"
+    text: 系统掌握金融投资与管理的理论架构与知识体系。
+    requirement: 基础知识与专业知识：较系统地掌握本专业人才应具备的专业知识。
+  - id: "3.1"
+    requirement_id: "3"
+    text: 具有创新性思维和专业敏感性，能够发现、辨析、质疑、评价经济金融领域的现象和问题。
+    requirement: 创新性思维：具有批判性精神和专业敏感性、具有创新意识和创新实践能力。
+  - id: "4.1"
+    requirement_id: "4"
+    text: 能够对经济与金融领域的复杂问题进行综合分析和研究。
+    requirement: 解决复杂问题能力：能够对复杂问题进行综合分析和研究，并提出相应对策。
+  - id: "6.2"
+    requirement_id: "6"
+    text: 能够就经济金融领域的问题与业界同行及社会公众进行有效沟通和交流。
+    requirement: 沟通与表达能力：能够使用书面和口头表达的方式进行有效交流与沟通。
+  - id: "7.1"
+    requirement_id: "7"
+    text: 能主动和团队成员合作开展工作，并在团队活动中发挥积极作用。
+    requirement: 团队合作能力：具有团队协作意识，能够有效地与项目团队成员协调合作。
+
+objectives:
+  - id: CO1
+    indicator: "2.1"
+    text: 系统掌握财务报表分析的基础知识与分析框架。
+  - id: CO2
+    indicator: "2.2"
+    text: 掌握并运用偿债能力、营运能力、盈利能力等财务分析技术。
+  - id: CO3
+    indicator: "3.1"
+    text: 发现上市公司独有问题，辨析各方法的适用范围与缺陷。
+  - id: CO4
+    indicator: "4.1"
+    text: 结合宏观、行业与竞争环境对上市公司进行综合分析与研究。
+  - id: CO5
+    indicator: "6.2"
+    text: 撰写并展示财务报表分析报告。
+  - id: CO6
+    indicator: "7.1"
+    text: 以小组为单位分工协作完成分析报告。
+
+items:
+  # ---- classroom participation, 10 points over nine recorded sessions ----
+  - {id: CP1, name: 课堂讨论·第1次, source: classroom.1, kind: classroom, allocations: {CO1: 1.10}}
+  - {id: CP2, name: 课堂讨论·第2次, source: classroom.2, kind: classroom, allocations: {CO1: 1.10}}
+  - {id: CP3, name: 课堂讨论·第3次, source: classroom.3, kind: classroom, allocations: {CO2: 1.10}}
+  - {id: CP4, name: 课堂讨论·第4次, source: classroom.4, kind: classroom, allocations: {CO2: 1.10}}
+  - {id: CP5, name: 课堂讨论·第5次, source: classroom.5, kind: classroom, allocations: {CO2: 1.10}}
+  - {id: CP6, name: 课堂讨论·第6次, source: classroom.6, kind: classroom, allocations: {CO3: 1.10}}
+  - {id: CP7, name: 课堂讨论·第7次, source: classroom.7, kind: classroom, allocations: {CO3: 1.10}}
+  - {id: CP8, name: 课堂讨论·第8次, source: classroom.8, kind: classroom, allocations: {CO6: 1.15}}
+  - {id: CP9, name: 课堂讨论·第9次, source: classroom.9, kind: classroom, allocations: {CO6: 1.15}}
+
+  # ---- assignments, 40 points over the five laboratory units ----
+  - id: HW1
+    name: 作业1·财务报表分析基础
+    source: homework.1
+    kind: homework
+    allocations: {CO1: 8}
+  - id: HW2
+    name: 作业2·偿债能力分析
+    source: homework.2
+    kind: homework
+    allocations: {CO2: 8}
+  - id: HW3
+    name: 作业3·营运能力分析
+    source: homework.3
+    kind: homework
+    allocations: {CO2: 8}
+  - id: HW4
+    name: 作业4·盈利能力分析
+    source: homework.4
+    kind: homework
+    allocations: {CO2: 4, CO4: 4}
+  - id: HW5
+    name: 作业5·杜邦综合财务分析
+    source: homework.5
+    kind: homework
+    allocations: {CO3: 4, CO4: 4}
+
+  # ---- final report, 50 points over the five rubric dimensions -----------
+  # All five currently read the same recorded total, which is what makes them
+  # aggregate and mutually confounded. Recording the rubric rows separately is
+  # the single change that would fix it.
+  - id: R_ATT
+    name: 报告·态度与合作精神
+    source: final.total
+    kind: final
+    aggregate: true
+    group_assigned: true
+    derived_from: final.total
+    allocations: {CO6: 7.5}
+  - id: R_EXP
+    name: 报告·语言表达与工具运用
+    source: final.total
+    kind: final
+    aggregate: true
+    group_assigned: true
+    derived_from: final.total
+    allocations: {CO5: 7.5}
+  - id: R_STR
+    name: 报告·整体框架与内容角度
+    source: final.total
+    kind: final
+    aggregate: true
+    group_assigned: true
+    derived_from: final.total
+    allocations: {CO4: 15}
+  - id: R_LOG
+    name: 报告·逻辑性与方法运用
+    source: final.total
+    kind: final
+    aggregate: true
+    group_assigned: true
+    derived_from: final.total
+    allocations: {CO3: 6.25, CO4: 6.25}
+  - id: R_DEP
+    name: 报告·分析深度
+    source: final.total
+    kind: final
+    aggregate: true
+    group_assigned: true
+    derived_from: final.total
+    allocations: {CO3: 7.5}

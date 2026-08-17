@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+title: "CLOVER: Course Learning-Outcome Validation, Evaluation and Reporting"
+message: "If CLOVER contributes to published work, please cite the SoftwareX article below."
+type: software
+version: 1.1.0
+license: MIT
+repository-code: "https://github.com/SHELLY000/Clover"
+abstract: >-
+  Reproducible, auditable and self-checking course-outcome attainment
+  assessment for outcome-based education. Expresses the item-to-objective-to-
+  indicator mapping as a versioned, hashed blueprint; computes attainment with
+  bootstrap intervals; and applies ten validity checks that determine whether
+  each reported value is identifiable from the evidence declared.
+keywords:
+  - outcome-based education
+  - learning outcome attainment
+  - educational measurement
+  - identifiability
+  - accreditation
+  - reproducibility
+authors:
+  - given-names: "Li"
+    family-names: "Zhou"
+    affiliation: "Wuhan Business University"
+    orcid: "https://orcid.org/0000-0002-4024-2552"
+preferred-citation:
+  type: article
+  title: "CLOVER: an open-source toolkit for reproducible and self-checking course-outcome attainment assessment"
+  journal: SoftwareX
+  year: 2026
+  doi: "10.1016/j.softx.XXXX.XXXXXX"
+  authors:
+    - given-names: "Li"
+      family-names: "Zhou"
+      orcid: "https://orcid.org/0000-0002-4024-2552"

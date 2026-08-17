@@ -1,0 +1,120 @@
+# Blueprint A — the allocation as declared in the syllabus and as computed in
+# the institutional calculation workbook: two aggregate marks (coursework and
+# final coursework assessment) split across six objectives by fixed shares.
+#
+# This blueprint is faithful to current practice. It is included so that the
+# practice can be checked rather than assumed, and so that the official forms
+# can be produced from it without hand transcription.
+
+schema_version: "1.0"
+blueprint_id: example-bm0400067-declared
+
+course:
+  code: BM0400067
+  name: 国际财务报表分析
+  name_en: International Financial Statement Analysis
+  institution: 武汉商学院
+  program: 经济与金融
+  cohort_label: 23经济与金融(本科)
+  term: 2025-2026-2
+  credits: 2学分
+  hours: 32学时
+  nature: 专业限选课
+  department: 金融教研室
+  assessment_mode: 考查
+  instructor: 教师A
+
+policy:
+  qualifying_standard: 0.65
+  total_points: 100
+  method: score_ratio
+  expectation_level: 0.60
+  bootstrap_iterations: 2000
+  bootstrap_confidence: 0.95
+  seed: 20260816
+  min_items_per_objective: 2
+  collinearity_warn: 0.90
+  collinearity_fail: 0.98
+
+indicators:
+  - id: "2.1"
+    requirement_id: "2"
+    text: 具备扎实的经济学与金融学基础知识。
+    requirement: >-
+      基础知识与专业知识：具备扎实的经济学、金融学基础知识，较系统地掌握本专业人才在
+      复杂的经济和金融环境中从事经济、金融投资与管理活动应具备的专业知识。
+  - id: "2.2"
+    requirement_id: "2"
+    text: 系统掌握金融投资与管理的理论架构与知识体系。
+    requirement: >-
+      基础知识与专业知识：具备扎实的经济学、金融学基础知识，较系统地掌握本专业人才在
+      复杂的经济和金融环境中从事经济、金融投资与管理活动应具备的专业知识。
+  - id: "3.1"
+    requirement_id: "3"
+    text: 具有创新性思维和专业敏感性，能够发现、辨析、质疑、评价经济金融领域的现象和问题，表达个人见解。
+    requirement: 创新性思维：具有批判性精神和专业敏感性、具有创新意识和创新实践能力。
+  - id: "4.1"
+    requirement_id: "4"
+    text: 能够对经济与金融领域的复杂问题进行综合分析和研究。
+    requirement: 解决复杂问题能力：能够对经济与金融领域的复杂问题进行综合分析和研究，并提出相应对策或解决方案。
+  - id: "6.2"
+    requirement_id: "6"
+    text: 能够就经济金融领域的问题与业界同行及社会公众进行有效沟通和交流，包括撰写报告和设计文稿、陈述发言。
+    requirement: 沟通与表达能力：能够使用书面和口头表达的方式与业界同行和社会公众进行有效的交流与沟通。
+  - id: "7.1"
+    requirement_id: "7"
+    text: 能主动和团队成员合作开展工作，能够与团队成员和谐共处、协作共事，并在团队活动中发挥积极作用。
+    requirement: 团队合作能力：具有团队协作意识，能够有效地与项目团队成员协调合作。
+
+objectives:
+  - id: CO1
+    indicator: "2.1"
+    text: 系统掌握财务报表分析的基础知识，包括报表类型及其关系、信息获取途径、分析的目的与框架。
+  - id: CO2
+    indicator: "2.2"
+    text: 掌握并运用财务报表分析技术，能对企业进行偿债能力、营运能力、盈利能力与综合财务分析。
+  - id: CO3
+    indicator: "3.1"
+    text: 挖掘上市公司独有问题，知晓各方法的适用范围与缺陷，并据实践完善已有分析理论与方法。
+  - id: CO4
+    indicator: "4.1"
+    text: 结合宏观环境、行业状况与竞争对手，对上市公司经营、战略、资金、资本结构与盈利模式作综合分析。
+  - id: CO5
+    indicator: "6.2"
+    text: 通过撰写和展示财务报表分析报告，展示对上市公司财务状况的分析与研究。
+  - id: CO6
+    indicator: "7.1"
+    text: 以小组为单位开展学习，互相讨论、合理分工、团结协作，共同完成财务报表分析报告。
+
+items:
+  - id: DAILY
+    name: 平时表现
+    source: daily.total
+    full_mark: 100
+    kind: coursework
+    aggregate: true
+    note: >-
+      课堂表现（20%）与平时作业（80%）合成后的单一聚合分，未按课程目标分别记分。
+    allocations:
+      CO1: 5
+      CO2: 8
+      CO3: 12
+      CO4: 10
+      CO6: 15
+
+  - id: FINAL
+    name: 期末考查
+    source: final.total
+    full_mark: 100
+    kind: final
+    aggregate: true
+    group_assigned: true
+    note: >-
+      期末财务报表分析报告，按小组评分，组内成员同分；评分标准含五个维度，
+      但仅记录合成总分。
+    allocations:
+      CO1: 6
+      CO3: 8
+      CO4: 10
+      CO5: 12
+      CO6: 14

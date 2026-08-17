@@ -1,0 +1,23 @@
+# Fill this in once, run `python scripts/set_metadata.py`, and every
+# placeholder in the manuscript, pyproject.toml, README, CITATION.cff and
+# Dockerfile is replaced consistently.
+#
+# Audit finding A-1 was that these values were scattered across five files in
+# three syntaxes, which is exactly the kind of thing that gets half-done.
+
+org: SHELLY000                            # GitHub organisation or user
+repo: Clover
+version: 1.1.0
+doi: 10.5281/zenodo.XXXXXXX               # Zenodo archive of the tagged release
+support_email: 20200122@wbu.edu.cn
+
+corresponding_email: 20200122@wbu.edu.cn
+authors:
+  - name: Zhou Li
+    affiliation: a
+    orcid: "https://orcid.org/0000-0002-4024-2552"
+affiliations:
+  a: "School of Economics, Wuhan Business University, Wuhan 430056, Hubei, China"
+
+ethics_reference: ""                      # A-2: leave empty until obtained
+funding: ""

@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clover-obe"
+version = "1.1.0"
+description = "Reproducible, auditable and self-checking course-outcome attainment assessment for outcome-based education"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Zhou Li", email = "20200122@wbu.edu.cn" }]
+keywords = [
+    "outcome-based education", "learning analytics", "educational measurement",
+    "accreditation", "course learning outcomes", "attainment", "identifiability",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "PyYAML>=6.0",
+    "openpyxl>=3.1",
+    "xlrd>=2.0",
+    "python-docx>=1.1",
+    "Jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff>=0.4"]
+
+[project.urls]
+Homepage = "https://github.com/SHELLY000/Clover"
+Documentation = "https://SHELLY000.github.io/Clover"
+Source = "https://github.com/SHELLY000/Clover"
+Issues = "https://github.com/SHELLY000/Clover/issues"
+
+[project.scripts]
+clover = "clover.cli:main"
+
+[tool.setuptools]
+packages = ["clover", "clover.ingest", "clover.report"]
+
+[tool.setuptools.package-data]
+clover = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
